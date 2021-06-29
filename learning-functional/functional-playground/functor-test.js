@@ -1,4 +1,4 @@
-import { Container, MayBe, Either, Monad } from "../lib";
+import { Container, MayBe, Either } from "../lib";
 // 给我的感觉函子就是用来做错误处理的
 console.log(Container.of(10).map(item => item + 10));
 console.log(
@@ -30,12 +30,3 @@ console.log(res);
 // Pointed函子是一个函子的子集具有实现了of的契约接口
 // Array.of就是这样一个可以把数组变成Pointed函子的方法
 // 个人认为这只是一个称谓吧
-
-// Monad
-// 相当于把value直接返回了
-// 实现了join和chain接口的就是Monad
-console.log(
-    Monad.of("123")
-        .map(Number)
-        .chain(v => v + 100)
-);

@@ -16,3 +16,4 @@ export {
 export { Container } from "./functor/Container";
 export { MayBe } from "./functor/MayBe";
 export { Either } from "./functor/Either";
+export { Monad } from "./functor/Monad";

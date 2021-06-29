@@ -121,3 +121,31 @@ export const identity = it => {
 // );
 
 // add(3);
+
+// 一段时间只能出发一次
+export const throttle = (fn, delay) => {
+    let valid = true;
+    return function () {
+        if (!valid) {
+            return false;
+        }
+        valid = false;
+        setTimeout(() => {
+            fn();
+            valid = true;
+        }, delay);
+    };
+};
+
+// 触发事件会停止上一次的触发
+export const debounce = (fn, delay) => {
+    let timer = null;
+    return function () {
+        if (timer) {
+            clearTimeout(timer);
+            timer = setTimeout(fn, delay);
+        } else {
+            timer = setTimeout(fn, delay);
+        }
+    };
+};
